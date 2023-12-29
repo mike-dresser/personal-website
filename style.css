@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght400");
 
 * {
-    background: peachpuff;
     font-family:'Inter', 'Helvetica Neue', Verdana, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+body {
+    background: peachpuff;
+    color: black;
+}
+
 h1 {
     font-size: 64px;
-    margin: 20px 0px 0px 0px;
+    margin-top: 20px;
     padding: 0px;
     /* border: 1px solid red; */
 }
@@ -45,10 +49,10 @@ li {
 
 #nav ul {
     display: flex;
+    max-height: 400px;
     flex-direction: column;
     margin: 0px;
     padding-left: 2em;
-    /* justify-content: stretch; */
     min-width: 200px;
     /* border: 1px solid red; */
 }
@@ -58,7 +62,7 @@ li {
     display: flex;
     height: 18%;
 
-    /* removed when selected */
+    /* padding removed on li.selected */
     padding-bottom: 2px;
 
     justify-content: right;
@@ -83,25 +87,30 @@ li {
 
 }
 
-#content h2 {
-    position: relative;
-    bottom: 0;
-
-}
 div.about, div.projects, div.contact {
     display: none;
-
-    /* border: 1px solid green; */
 }
 
 div.selected {
     display: block;
 }
 
-#content h2 {
-    text-align: right;
-    font-style: italic;
-    margin-top: 2em;
+.soloProject h3 {
+    border-bottom: 3px solid black;
+}
+
+.soloProject p {
+    font-size: 20px;
+    padding-left:1em;
+    margin-bottom: 5px;
+}
+
+.soloProject a:hover {
+    padding-left: 2px;
+}
+
+div.contact {
+    padding: 3em 4em;
 }
 
 #footer ul {
