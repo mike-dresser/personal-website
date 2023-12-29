@@ -9,7 +9,9 @@ body {
 
 h1 {
     font-size: 64px;
-    margin-bottom: 0;
+    margin: 20px 0px 0px 0px;
+    padding: 0px;
+    /* border: 1px solid red; */
 }
 
 a {
@@ -18,20 +20,19 @@ a {
 }
 
 li {
+    font-size: 20px;
     list-style: none;
     padding: none;
     margin: none;
 }
 
 #header {
-    margin: 0 4em;
-    padding-top: 2em;
-    border-bottom: 2px solid black;
+    margin: 0 2em;
+    border-bottom: 3px solid black;
 }
 
 #main {
     display: flex;
-    /* border: 1px solid red; */
 }
 
 #nav {
@@ -47,6 +48,7 @@ li {
     display: flex;
     flex-direction: column;
     margin: 0px;
+    padding-left: 2em;
     /* justify-content: stretch; */
     min-width: 200px;
     /* border: 1px solid red; */
@@ -56,13 +58,17 @@ li {
     border-bottom: 1px solid black;
     display: flex;
     height: 18%;
-    /* flex-grow: 1; */
+
+    /* removed when selected */
+    padding-bottom: 2px;
+
     justify-content: right;
     align-items: flex-end;
 
 }
 
-#nav li.active {
+#nav li.selected {
+    padding-bottom: 0px;
     border-bottom-width: 3px;
 }
 
