@@ -82,8 +82,15 @@ li {
 
 }
 
+#content h2 {
+    position: relative;
+    bottom: 0;
+
+}
 div.about, div.projects, div.contact {
     display: none;
+
+    border: 1px solid green;
 }
 
 div.selected {

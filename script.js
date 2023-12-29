@@ -1,11 +1,4 @@
 // Where the Wild Things Are
-function poweredBy() {
-    const h2 = document.createElement("h2");
-    h2.textContent = "Powered by Javascript";
-
-    const content = document.getElementById("content");
-    content.append(h2);
-}
 
 const navItems = document.querySelectorAll("#nav li");
 const contentItems = document.querySelectorAll("#content div")
@@ -22,7 +15,6 @@ function showPageContent(pageClass) {
 }
 
 function initialPageState(show) {
-    poweredBy();
     initializeNav();
     showPageContent(`${show}`);
 }
