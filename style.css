@@ -1,8 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400");
+
 body {
     background: peachpuff;
-    font-family:'Helvetica Neue', Verdana, sans-serif;
+    font-family:'Inter', 'Helvetica Neue', Verdana, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 0;
 }
 
 a {
@@ -16,49 +23,56 @@ li {
     margin: none;
 }
 
-#main {
-    display: flex;
-    border: 1px solid red;
-    padding: 2em;
-
-}
-
-#nav {
-    font-size: 18px;
-    font-weight: 700;
-    border: 1px solid purple;
-}
-
-#nav ul {
-    padding-left: 4em;
-    min-width: 150px;
-    display: flex;
-    border: 1px solid red;
-
-    flex-direction: column;
-    margin: 0px;
-}
-
-#nav li {
-    border: 1px solid black;
-    min-height: 100px;
-    
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
 #header {
     margin: 0 4em;
     padding-top: 2em;
     border-bottom: 2px solid black;
 }
 
+#main {
+    display: flex;
+    /* border: 1px solid red; */
+}
+
+#nav {
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 3em;
+    /* border: 1px solid purple; */
+    justify-content: stretch;
+    display: flex;
+}
+
+#nav ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    /* justify-content: stretch; */
+    min-width: 200px;
+    /* border: 1px solid red; */
+}
+
+#nav li {
+    border-bottom: 1px solid black;
+    display: flex;
+    height: 18%;
+    /* flex-grow: 1; */
+    justify-content: right;
+    align-items: flex-end;
+
+}
+
+#nav li.active {
+    border-bottom-width: 3px;
+}
+
+
 #content {
     max-width: 600px;
-    /* min-width: 400px; */
-    margin: auto;
-    padding: 2em;
-    border: 1px solid black;
+    min-width: 400px;
+    padding: 3em;
+    /* border: 1px solid black; */
+
 }
 
 #content h2 {
@@ -68,7 +82,6 @@ li {
 }
 
 #footer ul {
-    margin: 0 auto;
     display: flex;
     gap: 75px;
     justify-content: center;
