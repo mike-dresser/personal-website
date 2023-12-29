@@ -76,9 +76,18 @@ li {
 #content {
     max-width: 600px;
     min-width: 400px;
+    min-height: 400px;
     padding: 3em;
     /* border: 1px solid black; */
 
+}
+
+div.about, div.projects, div.contact {
+    display: none;
+}
+
+div.selected {
+    display: block;
 }
 
 #content h2 {
