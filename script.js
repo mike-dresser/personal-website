@@ -1,3 +1,5 @@
+// The page content (div#content div)s are styled "display: none" by default;
+// the .selected class is added to change style to "display: block".
 
 function clearPageContent() {
     const contentItems = document.querySelectorAll("#content div")
@@ -11,21 +13,23 @@ function showPageContent(pageClass) {
     activePage.classList.toggle('selected');
 }
 
-function showNavState(item) {
+// Nav items share the class name with the content div they correspond to
+// (.about, .projects, etc)
+function selectNavItem(item) {
     document.querySelector(`#nav li.${item}`).classList.toggle("selected");
 }
 
 function initialPageState(navItem) {
     initializeNav();
-    showNavState(navItem);
+    selectNavItem(navItem);
     showPageContent(`${navItem}`);
 }
 
 /* I want to tidy initializeNav() up. Currently we
 -- select all nav list items
 -- for each add a click eventListener
--- the callback function clears removes .selected class from 
-the nav item, and clears the corresponding div
+-- the callback function removes .selected class from 
+the nav item and clears the corresponding div (removing .selected)
 -- then toggles on the selected nav item / shows the corresponding div
 
 I should be able to separate the toggle behavior from the initialize function
