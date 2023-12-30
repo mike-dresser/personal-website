@@ -1,10 +1,13 @@
 // The page content (div#content div)s are styled "display: none" by default;
 // the .selected class is added to change style to "display: block".
 
-function clearPageContent() {
-    const contentItems = document.querySelectorAll("#content div")
-    contentItems.forEach(item =>
-        item.classList.remove("selected")
+
+// Clears the .selected class from #nav (toggling the border) or #content <div>
+// (switching to the default display: none). Gets us back to "nothing selected".
+function clearSelectedClass(selector) {
+    const items = document.querySelectorAll(selector);
+    items.forEach(item =>
+       item.classList.remove("selected") 
     )
 }
 
@@ -25,27 +28,22 @@ function initialPageState(navItem) {
     showPageContent(`${navItem}`);
 }
 
-/* I want to tidy initializeNav() up. Currently we
--- select all nav list items
--- for each add a click eventListener
--- the callback function removes .selected class from 
-the nav item and clears the corresponding div (removing .selected)
--- then toggles on the selected nav item / shows the corresponding div
+/*
+Using event delegation, the click event on the #nav <li>
+or its contained <a> (not sure if the link tag is necessary / beneficial?) 
+bubbles up to the #nav div and passes a reference to the click target, including its 
+text content. (It's the same whether the click is on the <li> or nested <a>).
 
-I should be able to separate the toggle behavior from the initialize function
+The the lowercase version of this value matches the class name of the associated
+#content <div>, and allows me to toggle .selected to make it visible.
 */
+
 function initializeNav() {
-    const navItems = document.querySelectorAll("#nav li");
-    navItems.forEach(currentItem => 
-        currentItem.addEventListener("click", function ()  {
-            navItems.forEach(item =>
-                item.classList.remove("selected")
-            );
-            clearPageContent();
-            document.querySelector(`div.${currentItem.classList.value}`).classList.toggle("selected");
-            currentItem.classList.toggle("selected");
-    }));
+    document.querySelector("#nav").addEventListener("click", clickEvent => {
+        const navTarget = clickEvent.target.textContent.toLowerCase();
+        clearSelectedClass("#nav li");
+        clearSelectedClass("#content div");
+        document.querySelector(`#content div.${navTarget}`).classList.toggle("selected");
+    });
 }
-
-
 initialPageState('about');
