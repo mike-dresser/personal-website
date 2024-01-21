@@ -25,7 +25,7 @@ function selectNavItem(item) {
 function initialPageState(navItem) {
     initializeNav();
     selectNavItem(navItem);
-    showPageContent(`${navItem}`);
+    showPageContent(navItem);
 }
 
 /*
@@ -42,6 +42,7 @@ function initializeNav() {
     document.querySelector("#nav").addEventListener("click", clickEvent => {
         const navTarget = clickEvent.target.textContent.toLowerCase();
         clearSelectedClass("#nav li");
+        selectNavItem(navTarget);
         clearSelectedClass("#content div");
         document.querySelector(`#content div.${navTarget}`).classList.toggle("selected");
     });
